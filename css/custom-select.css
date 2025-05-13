@@ -1,0 +1,102 @@
+select,
+::picker(select) {
+    appearance: base-select;
+}
+
+/* form-select-container {
+    display: flex;
+    gap: 10px;
+} */
+
+/* label {
+    width: fit-content;
+    align-self: center;
+} */
+
+/* select {
+    flex: 1;
+} */
+select {
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+select:hover,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+select::picker-icon {
+    color: #999;
+    transition: 0.4s rotate;
+}
+select:open::picker-icon {
+    rotate: 180deg;
+}
+::picker(select) {
+    border: none;
+}
+option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    border: 2px solid #333333;
+    background: rgba(170, 170, 170, 0.75);
+    padding: 10px;
+    transition: 0.2s;
+}
+option:first-of-type {
+    border-radius: 8px 8px 0 0;
+    background: rgba(170, 170, 170, 1);
+}
+
+option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+option:nth-of-type(odd) {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+option:hover,
+option:focus {
+    background: rgba(110, 255, 170, 0.9);
+}
+option .icon {
+    font-size: 1.2rem;
+    text-box: trim-both cap alphabetic;
+}
+selectedcontent .icon {
+    display: none;
+}
+option:checked {
+    font-weight: bold;
+}
+option::checkmark {
+    order: 1;
+    margin-left: auto;
+    content: "✔️";
+}
+::picker(select) {
+    opacity: 0;
+    background: none;
+    transition: all 0.2s allow-discrete;
+}
+::picker(select):popover-open {
+    opacity: 1;
+}
+@starting-style {
+    ::picker(select):popover-open {
+        opacity: 0;
+    }
+}
+::picker(select) {
+    top: calc(anchor(bottom) + 1px);
+    left: anchor(0%);
+}
