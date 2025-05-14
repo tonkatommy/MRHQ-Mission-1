@@ -1,4 +1,4 @@
-/***** Removes margin and padding from all elements on the page *****/
+/***** Changes all elements to border-box sizing *****/
 * {
     box-sizing: border-box;
 }
@@ -67,11 +67,12 @@ body {
 
 /***** The background of the page *****/
 .bg-slider-container {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: sticky;
     top: 0;
     left: 0;
+    /* z-index: -2; */
     background-image: url("../images/bg-1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -84,10 +85,11 @@ body {
 .bg-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 /***** The main container *****/
@@ -95,7 +97,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -113,9 +115,9 @@ body {
     /* gap: 10px; */
     height: 100%;
     width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
+    /* position: sticky; */
+    /* top: 0; */
+    /* left: 0; */
     /* z-index: 2; */
 }
 
@@ -125,8 +127,8 @@ body {
     margin-top: 0px;
     /* margin: 0 auto; */
     padding: 20px 40px;
-    /* position: absolute; */
-    /* top: 0px; */
+    position: sticky;
+    top: 0px;
     /* left: 0px; */
     color: white;
     /* z-index: 2; */
@@ -355,9 +357,11 @@ body {
 /***** Footer *****/
 .footer {
     width: 100vw;
-    height: 100px;
+    /* height: auto; */
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     justify-content: center;
     align-items: center;
     margin-top: 60px;
@@ -377,10 +381,36 @@ body {
     font-weight: 600;
 }
 
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 2rem;
+    /* margin-top: 50px; */
+}
+
+.footer-socials a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-socials a:hover {
+    color: #4caf50;
+    transform: scale(1.2);
+}
+
 /***** Media Queries *****/
 @media screen and (max-width: 768px) {
     .main-sections,
     .main-header ul {
         flex-direction: column;
+    }
+
+    .main-header {
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 }
