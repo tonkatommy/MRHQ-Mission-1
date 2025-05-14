@@ -198,6 +198,7 @@ body {
     gap: 40px;
     width: 100%;
     max-width: 1200px;
+    margin-bottom: 40px;
 }
 
 .left-section {
@@ -391,15 +392,19 @@ body {
     /* margin-top: 50px; */
 }
 
-.footer-socials a {
+.footer-socials i {
     color: white;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 }
 
-.footer-socials a:hover {
+.footer-socials i:hover {
     color: #4caf50;
     transform: scale(1.2);
+}
+
+.footer-socials i:active {
+    transform: translate(0, 2px) scale(1.2);
 }
 
 /***** Media Queries *****/
